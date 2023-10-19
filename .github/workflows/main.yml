@@ -27,4 +27,4 @@ jobs:
           server: ftp.echowhite.com
           username: builder@echowhite.com
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
+          local-dir: dist/
