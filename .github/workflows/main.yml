@@ -22,7 +22,7 @@ jobs:
         run: npm run build:prod
 
       - name: Deploy static site to FTP server
-        uses: samkirkland/ftp-deploy@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.echowhite.com
           username: builder@sha.echowhite.com
