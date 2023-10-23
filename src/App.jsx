@@ -19,7 +19,7 @@ import RegisterProfile from './components/SignUp/RegisterProfile';
 
 export default function App() {
 
-  const [mode, setMode] = React.useState('dark');
+  const [mode, setMode] = React.useState('light');
 
   const colorMode = React.useMemo(
     () => ({

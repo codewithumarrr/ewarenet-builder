@@ -16,6 +16,7 @@ import {
   FormControlLabel,
   InputAdornment,
   OutlinedInput,
+  InputBase,
 } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -37,7 +38,11 @@ function RegisterProfile() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
 
+  const handleCountryCodeChange = (event) => {
+    setSelectedCountryCode(event.target.value);
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -101,7 +106,7 @@ function RegisterProfile() {
             name="fullName"
             value={formData.fullName}
             onChange={handleInputChange}
-            sx={{ maxHeight: "30px" }}
+            sx={{ maxHeight: "25px" }}
           />
           <TextField
             size="small"
@@ -112,7 +117,7 @@ function RegisterProfile() {
             name="profession"
             value={formData.profession}
             onChange={handleInputChange}
-            sx={{ maxHeight: "30px" }}
+            sx={{ maxHeight: "25px" }}
           />
           <TextField
             size="small"
@@ -123,7 +128,7 @@ function RegisterProfile() {
             name="body"
             value={formData.body}
             onChange={handleInputChange}
-            sx={{ maxHeight: "30px" }}
+            sx={{ maxHeight: "25px" }}
           />
           <TextField
             size="small"
@@ -134,7 +139,7 @@ function RegisterProfile() {
             name="registrationNumber"
             value={formData.registrationNumber}
             onChange={handleInputChange}
-            sx={{ maxHeight: "30px" }}
+            sx={{ maxHeight: "25px" }}
           />
           <TextField
             size="small"
@@ -145,43 +150,45 @@ function RegisterProfile() {
             name="companyName"
             value={formData.companyName}
             onChange={handleInputChange}
-            sx={{ maxHeight: "30px" }}
+            sx={{ maxHeight: "25px" }}
           />
-          <Box sx={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          <FormControl sx={{ marginTop: "1rem" }}>
             <TextField
               size="small"
-              label="Country Code"
-              variant="outlined"
-              margin="normal"
-              name="countryCode"
-              value={formData.countryCode}
-              onChange={handleInputChange}
-              sx={{ flex: 1, maxHeight: "30px" }}
+              label="Phone #"
+              // value={selectedCountryCode}
+              // onChange={handleCountryCodeChange}
+              startAdornment={
+                <InputAdornment position="start">
+                  <TextField
+                    select
+                    size="small"
+                    label="Country Code"
+                    value={selectedCountryCode}
+                    onChange={handleCountryCodeChange}
+                    sx={{ maxHeight: "25px" }}
+                  >
+                    <MenuItem value="+1">+1</MenuItem>
+                    <MenuItem value="+44">+44</MenuItem>
+                    {/* Add more country codes here */}
+                  </TextField>
+                </InputAdornment>
+              }
             />
-            <TextField
-              size="small"
-              label="Contact Number"
-              variant="outlined"
-              margin="normal"
-              name="contactNumber"
-              value={formData.contactNumber}
-              onChange={handleInputChange}
-              sx={{ flex: 2, maxHeight: "30px" }}
-            />
-          </Box>
-          <FormControl mt={2} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
+          </FormControl>
+          <FormControl variant="outlined" sx={{ marginTop: ".7rem" }}>
+            {/* <InputLabel htmlFor="outlined-adornment-password">
               Password
-            </InputLabel>
-            <OutlinedInput
+            </InputLabel> */}
+            <TextField
               id="outlined-adornment-password"
               size="small"
+              labelPosition="float"
               label="Password"
               type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              sx={{ maxHeight: "30px" }}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
@@ -195,11 +202,8 @@ function RegisterProfile() {
               }
             />
           </FormControl>
-          <FormControl variant="outlined" sx={{marginTop: 2}}>
-            <InputLabel htmlFor="outlined-adornment-verify-password">
-              Verify Password
-            </InputLabel>
-            <OutlinedInput
+          <FormControl variant="outlined" sx={{marginTop: "-.3rem"}}>
+            <TextField
               size="small"
               label="Verify Password"
               id="outlined-adornment-verify-password"
@@ -210,7 +214,6 @@ function RegisterProfile() {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleInputChange}
-              sx={{ maxHeight: "30px" }}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
