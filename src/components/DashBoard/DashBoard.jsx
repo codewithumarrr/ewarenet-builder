@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconButton, Box, Grid, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -10,6 +10,7 @@ import RegisterProject from "./Project/RegisterProject";
 export default function DashBoard() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+  const [showCreateBtn, setShowCreateBtn] = useState(false);
 
   return (
     <Box component={"div"} sx={{ position: "relative" }}>
@@ -39,9 +40,9 @@ export default function DashBoard() {
         >
           You currently have no project in your list
         </Typography>
-        <Button>Create Project</Button>
+        <Button onClick={() => setShowCreateBtn(true)}>Create Project</Button>
       </Box>
-      {/* <RegisterProject /> */}
+      <RegisterProject isCreateFormOpen={showCreateBtn} setIsCreateFormOpen={setShowCreateBtn}/>
     </Box>
   );
 }
