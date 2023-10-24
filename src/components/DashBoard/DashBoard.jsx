@@ -41,7 +41,7 @@ export default function DashBoard() {
         </Typography>
         <Button>Create Project</Button>
       </Box>
-      <RegisterProject />
+      {/* <RegisterProject /> */}
     </Box>
   );
 }

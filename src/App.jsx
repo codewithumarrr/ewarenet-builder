@@ -16,6 +16,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import VerificationCode from './components/SignUp/VerificationCode';
 import RegisterProfile from './components/SignUp/RegisterProfile';
+import Projects from './components/DashBoard/Projects';
 
 export default function App() {
 
@@ -44,7 +45,7 @@ export default function App() {
         <CssBaseline />
         <SideBar />
         <Box ml={'90px'}>
-          <DashBoard />
+          <Projects />
         </Box>
 
         {/* <RegisterProfile /> */}
