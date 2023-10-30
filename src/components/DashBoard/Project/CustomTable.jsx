@@ -97,9 +97,10 @@ function CustomTable({ data }) {
                 Complete
               </StyledTableCell>
               <StyledTableCell align="left">
-                <Link href="your-link-here" style={{ color: "primary.light" }}>
-                  View
-                </Link>
+              <Link href="your-link-here" style={{ color: "#fff", textDecoration: 'none' }}>
+  View
+</Link>
+
               </StyledTableCell>
             </StyledTableRow>
           ))}

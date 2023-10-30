@@ -87,13 +87,14 @@ export default function Projects() {
    <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
-          marginTop: "20px",
+          marginLeft: "60px",
+          marginTop: "30px",
+          
         }}
       >
         {/* Render the CustomPagination component and pass the required props */}
         <CustomPagination                                              
-          count={Math.ceil(data.length / rowsPerPage)}
+          count={5}
           page={page}
           onChange={handleChangePage}
         />

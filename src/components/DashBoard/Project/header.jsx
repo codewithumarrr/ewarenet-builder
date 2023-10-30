@@ -4,13 +4,14 @@ import {
   Box,
   Button,
   IconButton,
+  InputAdornment,
   MenuItem,
   Select,
   TextField,
   Typography,
 } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'; // Import KeyboardArrowDownIcon
-
+import SearchIcon from "@mui/icons-material/Search";
 
 function Header() {
     const colorMode = React.useContext(ColorModeContext);
@@ -72,15 +73,24 @@ function Header() {
         }}
       >
         <TextField
-          label="Start Field"
-          variant="outlined"
-          size="small"
-          sx={{
-            color: (theme) => theme.palette.primary.light,
-            marginLeft: '70px',
-          }}
-        />
-
+      label="Search client"
+      variant="outlined"
+      size="small"
+      sx={{
+        color: (theme) => theme.palette.primary.light,
+        marginLeft: '70px',
+      }}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        ),
+      }}
+      InputLabelProps={{
+        shrink: true, // Keep the label inside when focused
+      }}
+    />
         <Box
           sx={{
             display: 'flex',
